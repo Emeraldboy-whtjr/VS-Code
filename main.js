@@ -1,23 +1,46 @@
-namearray = [];
+studentarray = [];
 function submit(){
-    var name1 = document.getElementById("student1").value;
-    var name2 = document.getElementById("student2").value;
-    var name3 = document.getElementById("student3").value;
-    var name4 = document.getElementById("student4").value;
+    var student = [];
+    for (var i = 1; i <= 4 ; i++) {
+        var name = document.getElementById("name_of_the_student_" + i).value;
+        studentarray.push(name);
+        console.log(name);
+        
+    }
+    console.log(studentarray);
+    var length = studentarray.length;
+    console.log(length);
 
-    namearray.push(name1);
-    namearray.push(name2);
-    namearray.push(name3);
-    namearray.push(name4);
+    for (var i = 0; i < length; i++) {
+        student.push("<h4>NAME- " + studentarray[i] + "</h4>");
+        console.log(student);
 
-    console.log(namearray);
-    document.getElementById("display_name").innerHTML=namearray;
-    document.getElementById("button_sbmt").style.display="none";
+        
+    }
+    console.log(student);
+    document.getElementById("display_name_with_commas").innerHTML=student;
 
-    document.getElementById("btn_sort").style.display="inline-block";
-}
+    var array_commas = student.join(" ");
+    console.log(array_commas);
+    document.getElementById("display_name_without_commas").innerHTML=array_commas;
+
+    document.getElementById("submit_button").style.display="none";
+
+    document.getElementById("sort_button").style.display="inline-block";
+};
 function sorting(){
-    namearray.sort();
-    console.log(namearray);
-    document.getElementById("display_name").innerHTML=namearray;
-}
+    studentarray.sort();
+    console.log(studentarray);
+    var sortedarray = [];
+    var length = studentarray.length;
+    console.log(length);
+    for (var i = 0; i < length; i++) {
+        sortedarray.push("<h4>NAME- " + studentarray[i] + "</h4>");
+        console.log(sortedarray);
+    }
+    var removecommas = sortedarray.join(" ");
+    console.log(removecommas);
+    document.getElementById("display_name_without_commas").innerHTML=removecommas;
+
+
+};
